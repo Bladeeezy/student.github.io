@@ -1,106 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Форма с блоками</title>
-  <style>
-    .block {
-      display: none;
-    }
-    .block.active {
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма с блоками</title>
+    <style>
+        .block {
+            display: none;
+        }
+
+        .block.active {
+            display: block;
+        }
+    </style>
 </head>
+
 <body>
-  <div id="block1" class="block active">
-    <h2>Блок 1: Студент</h2>
-    <label>ФИО: <input type="text" id="fio"></label><br>
-    <label>Группа: <input type="text" id="group"></label><br>
-    <label>Курс: <input type="number" id="course"></label><br>
-    <label>Форма обучения:
-      <select id="form">
-        <option value="очная">Очная</option>
-        <option value="заочная">Заочная</option>
-      </select>
-    </label><br>
-    <button onclick="nextBlock(1)">Далее</button>
-  </div>
+    
 
-  <div id="block2" class="block">
-    <h2>Блок 2: Вопросы</h2>
-    <div id="questions"></div>
-    <button onclick="nextBlock(2)">Далее</button>
-  </div>
 
-  <div id="block3" class="block">
-    <h2>Блок 3: Вопросы</h2>
-    <div id="questions2"></div>
-    <button onclick="submitForm()">Завершить</button>
-  </div>
+   <div class="flex flex-col gap-8 min-w-screen min-h-screen md:justify-center items-center bg-slate-300/70 p-4">
 
-  <script>
-    // Массивы вопросов
-    const questionsBlock2 = [
-      {
-        question_title: "Наименование вопроса 1",
-        answer_variants: [
-          { answer_title: "Ответ 1", answer_id_correct: true },
-          { answer_title: "Ответ 2", answer_id_correct: false }
-        ]
-      }
-    ];
+    <div class="text-2xl font-light">
+        Материал на конкурс ""
+    </div>
+    <div class="w-full max-w-2xl min-h-screen md:min-h-fit bg-white shadow-lg rounded-2xl p-6">
+        <!-- Блок 1 -->
+        <div id="block1" class="block active">
+            <h2 class="text-2xl font-bold mb-4">Блок 1: Студент</h2>
+            <div class="mb-4">
+                <label class=" text-sm font-medium text-gray-700">ФИО</label>
+                <input type="text" id="fio"
+                    class="mt-1 w-full bg-slate-300/50 py-2 rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+            </div>
+            <div class="mb-4">
+                <label class=" text-sm font-medium text-gray-700">Группа</label>
+                <input type="text" id="group"
+                    class="mt-1  w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+            </div>
+            <div class="mb-4">
+                <label class=" text-sm font-medium text-gray-700">Курс</label>
+                <input type="number" id="course"
+                    class="mt-1  w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+            </div>
+            <div class="mb-4">
+                <label class=" text-sm font-medium text-gray-700">Форма обучения</label>
+                <select id="form"
+                    class="mt-1  w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                    <option value="">Выберите форму обучения</option>
+                    <option value="очная">Очная</option>
+                    <option value="заочная">Заочная</option>
+                </select>
+            </div>
+            <button onclick="validateAndNextBlock(1)"
+                class="bg-indigo-600 w-full text-white px-4 py-2 rounded-xl py-4 shadow hover:bg-indigo-700 mt-4">
+                Далее
+            </button>
+        </div>
 
-    const questionsBlock3 = [
-      {
-        question_title: "Наименование вопроса 2",
-        answer_variants: [
-          { answer_title: "Ответ 1", answer_id_correct: false },
-          { answer_title: "Ответ 2", answer_id_correct: true }
-        ]
-      }
-    ];
 
-    const answers = []; // Хранение ответов
+        <!-- Блок 2 -->
+        <div id="block2" class="block hidden">
+            <h2 class="text-2xl font-bold mb-4">Блок 2: Вопросы</h2>
+            <div id="questions" class="space-y-6"></div>
+            <button onclick="nextBlock(2)"
+                class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
+                Далее
+            </button>
+        </div>
 
-    // Переход между блоками
-    function nextBlock(currentBlock) {
-      document.getElementById(`block${currentBlock}`).classList.remove("active");
-      document.getElementById(`block${currentBlock + 1}`).classList.add("active");
-      if (currentBlock === 1) renderQuestions("questions", questionsBlock2);
-      if (currentBlock === 2) renderQuestions("questions2", questionsBlock3);
-    }
+        <!-- Блок 3 -->
+        <div id="block3" class="block hidden">
+            <h2 class="text-2xl font-bold mb-4">Блок 3: Вопросы</h2>
+            <div id="questions2" class="space-y-6"></div>
+            <button onclick="submitForm()"
+                class="bg-green-600 text-white px-4 py-2 rounded-md shadow hover:bg-green-700">
+                Завершить
+            </button>
+        </div>
+    </div>
+    <div class="text-2xl font-light">
+        Our command
+    </div>
+   </div>
 
-    // Рендер вопросов
-    function renderQuestions(containerId, questions) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = ""; // Очистить старый контент
 
-      questions.forEach((q, index) => {
-        const questionDiv = document.createElement("div");
-        questionDiv.innerHTML = `<h3>${q.question_title}</h3>`;
-        q.answer_variants.forEach((answer, aIndex) => {
-          const radio = `
+    <script>
+        // Массивы вопросов
+        const questionsBlock2 = [
+            {
+                question_title: "Какое число больше?",
+                answer_variants: [
+                    { answer_title: "5", answer_id_correct: false },
+                    { answer_title: "10", answer_id_correct: true }
+                ]
+            }
+        ];
+
+        const questionsBlock3 = [
+            {
+                question_title: "Что тяжелее?",
+                answer_variants: [
+                    { answer_title: "Килограмм железа", answer_id_correct: false },
+                    { answer_title: "Килограмм ваты", answer_id_correct: false },
+                    { answer_title: "Они одинаковы по весу", answer_id_correct: true }
+                ]
+            }
+        ];
+
+
+        const answers = []; // Хранение ответов
+
+        // Переход между блоками
+        // function nextBlock(currentBlock) {
+        //   document.getElementById(`block${currentBlock}`).classList.remove("hidden");
+        //   document.getElementById(`block${currentBlock + 1}`).classList.add("hidden");
+        //   if (currentBlock === 1) renderQuestions("questions", questionsBlock2);
+        //   if (currentBlock === 2) renderQuestions("questions2", questionsBlock3);
+        // }
+
+        // Tailwind Utility Classes added to blocks
+        function validateAndNextBlock(currentBlock) {
+            if (currentBlock === 1) {
+                const fio = document.getElementById("fio").value.trim();
+                const group = document.getElementById("group").value.trim();
+                const course = document.getElementById("course").value.trim();
+                const form = document.getElementById("form").value.trim();
+
+                if (!fio || !group || !course || !form) {
+                    alert("Пожалуйста, заполните все поля!");
+                    return;
+                }
+            }
+
+            nextBlock(currentBlock);
+        }
+        function nextBlock(currentBlock) {
+            document.getElementById(`block${currentBlock}`).classList.remove('active');
+            document.getElementById(`block${currentBlock}`).classList.add('hidden');
+            document.getElementById(`block${currentBlock + 1}`).classList.remove('hidden');
+            if (currentBlock === 1) renderQuestions("questions", questionsBlock2);
+            if (currentBlock === 2) renderQuestions("questions2", questionsBlock3);
+        }
+
+        document.querySelectorAll('.block').forEach((block) => block.classList.add('hidden'));
+        document.querySelector('.block.active').classList.remove('hidden');
+
+        // function nextBlock(currentBlock) {
+        //   document.getElementById(`block${currentBlock}`).classList.add('hidden');
+        //   document.getElementById(`block${currentBlock + 1}`).classList.remove('hidden');
+        //   if (currentBlock === 1) renderQuestions("questions", questionsBlock2);
+        //      if (currentBlock === 2) renderQuestions("questions2", questionsBlock3);
+        // }
+
+        // Рендер вопросов
+        function renderQuestions(containerId, questions) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = ""; // Очистить старый контент
+
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement("div");
+                questionDiv.innerHTML = `<h3>${q.question_title}</h3>`;
+                q.answer_variants.forEach((answer, aIndex) => {
+                    const radio = `
             <label>
               <input type="radio" name="q${index}" value="${answer.answer_id_correct}">
               ${answer.answer_title}
             </label><br>
           `;
-          questionDiv.innerHTML += radio;
-        });
-        container.appendChild(questionDiv);
-      });
-    }
+                    questionDiv.innerHTML += radio;
+                });
+                container.appendChild(questionDiv);
+            });
+        }
 
 
-    function sendToTelegram(result) {
-  const botToken = "7513376393:AAG1fj3u-3IUxsaKnj7nDPAgVFO7MH178hk";
-  const chatId = "-4511060793"; // ID чата, куда отправить сообщение
-  const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+        function sendToTelegram(result) {
+            const botToken = "7513376393:AAG1fj3u-3IUxsaKnj7nDPAgVFO7MH178hk";
+            const chatId = "-4511060793"; // ID чата, куда отправить сообщение
+            const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-  // Подготовка содержимого сообщения
-  const message = `
+            // Подготовка содержимого сообщения
+            const message = `
 Студент: ${result.student}
 Группа: ${result.group}
 Курс: ${result.course}
@@ -108,70 +190,71 @@
 Правильных ответов: ${result.answers_correct}
   `;
 
-  // Отправка POST-запроса
-  fetch(apiUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: message,
-      parse_mode: "Markdown" // или "HTML", если требуется форматирование
-    })
-  })
-    .then(response => response.json())
-    .then(data => {
-      if (data.ok) {
-        alert("Результат успешно отправлен в Telegram!");
-      } else {
-        alert("Ошибка при отправке: " + data.description);
-      }
-    })
-    .catch(error => {
-      console.error("Ошибка:", error);
-      alert("Не удалось отправить данные в Telegram.");
-    });
-}
+            // Отправка POST-запроса
+            fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message,
+                    parse_mode: "Markdown" // или "HTML", если требуется форматирование
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert("Результат успешно отправлен в Telegram!");
+                    } else {
+                        alert("Ошибка при отправке: " + data.description);
+                    }
+                })
+                .catch(error => {
+                    console.error("Ошибка:", error);
+                    alert("Не удалось отправить данные в Telegram.");
+                });
+        }
 
 
 
 
-    // Завершение формы
-    function submitForm() {
-      const fio = document.getElementById("fio").value;
-      const group = document.getElementById("group").value;
-      const course = document.getElementById("course").value;
-      const form = document.getElementById("form").value;
+        // Завершение формы
+        function submitForm() {
+            const fio = document.getElementById("fio").value;
+            const group = document.getElementById("group").value;
+            const course = document.getElementById("course").value;
+            const form = document.getElementById("form").value;
 
-      let correctAnswers = 0;
+            let correctAnswers = 0;
 
-      // Проверка ответов блока 2
-      questionsBlock2.forEach((q, index) => {
-        const selected = document.querySelector(`input[name="q${index}"]:checked`);
-        if (selected && selected.value === "true") correctAnswers++;
-      });
+            // Проверка ответов блока 2
+            questionsBlock2.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                if (selected && selected.value === "true") correctAnswers++;
+            });
 
-      // Проверка ответов блока 3
-      questionsBlock3.forEach((q, index) => {
-        const selected = document.querySelector(`input[name="q${index}"]:checked`);
-        if (selected && selected.value === "true") correctAnswers++;
-      });
+            // Проверка ответов блока 3
+            questionsBlock3.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                if (selected && selected.value === "true") correctAnswers++;
+            });
 
-      const result = {
-        student: fio,
-        course: course,
-        group: group,
-        form: form,
-        answers_correct: correctAnswers
-      };
+            const result = {
+                student: fio,
+                course: course,
+                group: group,
+                form: form,
+                answers_correct: correctAnswers
+            };
 
-      sendToTelegram(result);
+            sendToTelegram(result);
 
-      console.log(result);
-      alert(`Результат отправлен. Правильных ответов: ${correctAnswers}`);
-    }
-  </script>
-   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+            console.log(result);
+            alert(`Результаты отправлены!\n\nФИО: ${fio}\nГруппа: ${group}\nКурс: ${course}\nФорма обучения: ${form}`);
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </body>
+
 </html>
