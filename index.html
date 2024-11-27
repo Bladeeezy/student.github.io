@@ -17,94 +17,120 @@
 </head>
 
 <body>
+
+
+
+    <div class="flex flex-col gap-8 min-w-screen min-h-screen md:justify-center items-center bg-slate-300/70 p-4">
+
+        <div class="text-2xl font-light">
+            Гражданско-патриотическое воспитание
+        </div>
+        <div class="w-full max-w-2xl min-h-screen md:min-h-fit bg-white shadow-lg rounded-2xl p-6">
+            <!-- Блок 1 -->
+            <div id="block1" class="block active">
+                <h2 class="text-2xl font-bold mb-4">Регистрация</h2>
+                <div class="mb-4">
+                    <label class=" text-sm font-medium text-gray-700">ФИО</label>
+                    <input type="text" id="fio"
+                        class="mt-1 w-full bg-slate-300/50 py-2 rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div class="mb-4">
+                    <label class=" text-sm font-medium text-gray-700">Группа</label>
+                    <input type="text" id="group"
+                        class="mt-1  w-full bg-slate-300/50 py-2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div class="mb-4">
+                    <label class=" text-sm font-medium text-gray-700">Курс</label>
+                    <input type="number" id="course"
+                        class="mt-1  w-full bg-slate-300/50 py-2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div class="mb-4">
+                    <label class=" text-sm font-medium text-gray-700">Форма обучения</label>
+                    <select id="form"
+                        class="mt-1  w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        <option value="">Выберите форму обучения</option>
+                        <option value="очная">Очная</option>
+                        <option value="заочная">Заочная</option>
+                    </select>
+                </div>
+                <button onclick="validateAndNextBlock(1)"
+                    class="bg-indigo-600 w-full text-white px-4 py-2 rounded-xl py-4 shadow hover:bg-indigo-700 mt-4">
+                    Далее
+                </button>
+            </div>
+
+
+            <!-- Блок 2 -->
+            <div id="block2" class="block hidden">
+                <h2 class="text-2xl font-bold mb-4">Вопрос 1</h2>
+                <div id="questions" class="space-y-6"></div>
+                <button onclick="nextBlock(2)"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
+                    Далее
+                </button>
+            </div>
+
     
 
-
-   <div class="flex flex-col gap-8 min-w-screen min-h-screen md:justify-center items-center bg-slate-300/70 p-4">
-
-    <div class="text-2xl font-light">
-        Материал на конкурс ""
-    </div>
-    <div class="w-full max-w-2xl min-h-screen md:min-h-fit bg-white shadow-lg rounded-2xl p-6">
-        <!-- Блок 1 -->
-        <div id="block1" class="block active">
-            <h2 class="text-2xl font-bold mb-4">Блок 1: Студент</h2>
-            <div class="mb-4">
-                <label class=" text-sm font-medium text-gray-700">ФИО</label>
-                <input type="text" id="fio"
-                    class="mt-1 w-full bg-slate-300/50 py-2 rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+            <!-- Блок 3 -->
+            <div id="block3" class="block hidden">
+                <h2 class="text-2xl font-bold mb-4">Вопрос 2</h2>
+                <div id="questions2" class="space-y-6"></div>
+                <button onclick="nextBlock(3)"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
+                    Далее
+                </button>
             </div>
-            <div class="mb-4">
-                <label class=" text-sm font-medium text-gray-700">Группа</label>
-                <input type="text" id="group"
-                    class="mt-1  w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+               <!-- Блок 4 -->
+            <div id="block4" class="block hidden">
+                <h2 class="text-2xl font-bold mb-4">Вопрос 3</h2>
+                <div id="questions3" class="space-y-6"></div>
+                <button onclick="submitForm()"
+                    class="bg-green-600 text-white px-4 py-2 rounded-md shadow hover:bg-green-700">
+                    Завершить
+                </button>
             </div>
-            <div class="mb-4">
-                <label class=" text-sm font-medium text-gray-700">Курс</label>
-                <input type="number" id="course"
-                    class="mt-1  w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-            </div>
-            <div class="mb-4">
-                <label class=" text-sm font-medium text-gray-700">Форма обучения</label>
-                <select id="form"
-                    class="mt-1  w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                    <option value="">Выберите форму обучения</option>
-                    <option value="очная">Очная</option>
-                    <option value="заочная">Заочная</option>
-                </select>
-            </div>
-            <button onclick="validateAndNextBlock(1)"
-                class="bg-indigo-600 w-full text-white px-4 py-2 rounded-xl py-4 shadow hover:bg-indigo-700 mt-4">
-                Далее
-            </button>
         </div>
-
-
-        <!-- Блок 2 -->
-        <div id="block2" class="block hidden">
-            <h2 class="text-2xl font-bold mb-4">Блок 2: Вопросы</h2>
-            <div id="questions" class="space-y-6"></div>
-            <button onclick="nextBlock(2)"
-                class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
-                Далее
-            </button>
-        </div>
-
-        <!-- Блок 3 -->
-        <div id="block3" class="block hidden">
-            <h2 class="text-2xl font-bold mb-4">Блок 3: Вопросы</h2>
-            <div id="questions2" class="space-y-6"></div>
-            <button onclick="submitForm()"
-                class="bg-green-600 text-white px-4 py-2 rounded-md shadow hover:bg-green-700">
-                Завершить
-            </button>
+        <div class="text-2xl font-light">
+            Наследие Беларуси
         </div>
     </div>
-    <div class="text-2xl font-light">
-        Our command
-    </div>
-   </div>
 
 
     <script>
         // Массивы вопросов
         const questionsBlock2 = [
             {
-                question_title: "Какое число больше?",
+                question_title: "В честь какого героя войны названа улица, на которой находиться Международной университет МИТСО?",
                 answer_variants: [
-                    { answer_title: "5", answer_id_correct: false },
-                    { answer_title: "10", answer_id_correct: true }
+                    { answer_title: "Исае Павлович", answer_id_correct: true },
+                    { answer_title: "Павел Яковлевич", answer_id_correct: false },
+                    { answer_title: "Иосиф Ираклиевич", answer_id_correct: false },
+                    { answer_title: "Владимир Васильевич", answer_id_correct: false },
                 ]
             }
         ];
 
         const questionsBlock3 = [
             {
-                question_title: "Что тяжелее?",
+                question_title: "Какое событие считается началом Великой Отечественной войны?",
                 answer_variants: [
-                    { answer_title: "Килограмм железа", answer_id_correct: false },
-                    { answer_title: "Килограмм ваты", answer_id_correct: false },
-                    { answer_title: "Они одинаковы по весу", answer_id_correct: true }
+                    { answer_title: "Оборона Брестской крепости", answer_id_correct: false },
+                    { answer_title: "Нападение нацистской Германии на СССР", answer_id_correct: true },
+                    { answer_title: "Блокада Ленинграда", answer_id_correct: false }
+                ]
+            }
+        ];
+
+        const questionsBlock4 = [
+            {
+                question_title: "Назовите столицу Великого княжества Литовского, которое включало территории современной Беларуси.",
+                answer_variants: [
+                    { answer_title: "Минск", answer_id_correct: false },
+                    { answer_title: "Вильна", answer_id_correct: true },
+                    { answer_title: "Смоленск", answer_id_correct: false },
+                    { answer_title: "Брест", answer_id_correct: false },
+
                 ]
             }
         ];
@@ -137,15 +163,23 @@
             nextBlock(currentBlock);
         }
         function nextBlock(currentBlock) {
+            // Скрыть текущий блок
             document.getElementById(`block${currentBlock}`).classList.remove('active');
             document.getElementById(`block${currentBlock}`).classList.add('hidden');
+
+            // Показать следующий блок
             document.getElementById(`block${currentBlock + 1}`).classList.remove('hidden');
-            if (currentBlock === 1) renderQuestions("questions", questionsBlock2);
-            if (currentBlock === 2) renderQuestions("questions2", questionsBlock3);
+            document.getElementById(`block${currentBlock + 1}`).classList.add('active');
+
+            // Рендеринг вопросов для каждого блока
+            if (currentBlock === 1) renderQuestions("questions", questionsBlock2, "block2");
+            if (currentBlock === 2) renderQuestions("questions2", questionsBlock3, "block3");
+            if (currentBlock === 3) renderQuestions("questions3", questionsBlock4, "block4");
+
         }
 
-        document.querySelectorAll('.block').forEach((block) => block.classList.add('hidden'));
-        document.querySelector('.block.active').classList.remove('hidden');
+        // document.querySelectorAll('.block').forEach((block) => block.classList.add('hidden'));
+        // document.querySelector('.block.active').classList.remove('hidden');
 
         // function nextBlock(currentBlock) {
         //   document.getElementById(`block${currentBlock}`).classList.add('hidden');
@@ -155,26 +189,24 @@
         // }
 
         // Рендер вопросов
-        function renderQuestions(containerId, questions) {
+        function renderQuestions(containerId, questions, blockPrefix) {
             const container = document.getElementById(containerId);
             container.innerHTML = ""; // Очистить старый контент
 
             questions.forEach((q, index) => {
                 const questionDiv = document.createElement("div");
-                questionDiv.innerHTML = `<h3>${q.question_title}</h3>`;
+                questionDiv.innerHTML = `<h3 class="font-medium text-lg mb-2">${q.question_title}</h3>`;
                 q.answer_variants.forEach((answer, aIndex) => {
                     const radio = `
-            <label>
-              <input type="radio" name="q${index}" value="${answer.answer_id_correct}">
-              ${answer.answer_title}
-            </label><br>
-          `;
+                <label class="block">
+                    <input type="radio" name="${blockPrefix}_q${index}" value="${answer.answer_id_correct}" class="mr-2">
+                    ${answer.answer_title}
+                </label>`;
                     questionDiv.innerHTML += radio;
                 });
                 container.appendChild(questionDiv);
             });
         }
-
 
         function sendToTelegram(result) {
             const botToken = "7513376393:AAG1fj3u-3IUxsaKnj7nDPAgVFO7MH178hk";
@@ -230,15 +262,20 @@
 
             // Проверка ответов блока 2
             questionsBlock2.forEach((q, index) => {
-                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const selected = document.querySelector(`input[name="block2_q${index}"]:checked`);
                 if (selected && selected.value === "true") correctAnswers++;
             });
 
             // Проверка ответов блока 3
             questionsBlock3.forEach((q, index) => {
-                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                const selected = document.querySelector(`input[name="block3_q${index}"]:checked`);
                 if (selected && selected.value === "true") correctAnswers++;
             });
+            questionsBlock4.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="block4_q${index}"]:checked`);
+                if (selected && selected.value === "true") correctAnswers++;
+            });
+            
 
             const result = {
                 student: fio,
@@ -251,7 +288,7 @@
             sendToTelegram(result);
 
             console.log(result);
-            alert(`Результаты отправлены!\n\nФИО: ${fio}\nГруппа: ${group}\nКурс: ${course}\nФорма обучения: ${form}`);
+            alert(`Результаты отправлены!\n\nФИО: ${fio}\nГруппа: ${group}\nКурс: ${course}\nФорма обучения: ${form}\nПравильных ответов: ${correctAnswers}`);
         }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
