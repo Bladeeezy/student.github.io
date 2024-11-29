@@ -70,7 +70,7 @@
                 </button>
             </div>
 
-    
+
 
             <!-- Блок 3 -->
             <div id="block3" class="block hidden">
@@ -81,10 +81,70 @@
                     Далее
                 </button>
             </div>
-               <!-- Блок 4 -->
+            <!-- блок 4 -->
             <div id="block4" class="block hidden">
                 <h2 class="text-2xl font-bold mb-4">Вопрос 3</h2>
                 <div id="questions3" class="space-y-6"></div>
+                <button onclick="nextBlock(4)"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
+                    Далее
+                </button>
+            </div>
+            <!-- блок 5 -->
+            <div id="block5" class="block hidden">
+                <h2 class="text-2xl font-bold mb-4">Вопрос 4</h2>
+                <div id="questions4" class="space-y-6"></div>
+                <button onclick="nextBlock(5)"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
+                    Далее
+                </button>
+            </div>
+            <div id="block6" class="block hidden">
+                <h2 class="text-2xl font-bold mb-4">Вопрос 5</h2>
+                <div id="questions5" class="space-y-6"></div>
+                <button onclick="nextBlock(6)"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
+                    Далее
+                </button>
+            </div>
+            <div id="block7" class="block hidden">
+                <h2 class="text-2xl font-bold mb-4">Вопрос 6</h2>
+                <div id="questions6" class="space-y-6"></div>
+                <button onclick="nextBlock(7)"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
+                    Далее
+                </button>
+            </div>
+            <div id="block8" class="block hidden">
+                <h2 class="text-2xl font-bold mb-4">Вопрос 7</h2>
+                <div id="questions7" class="space-y-6"></div>
+                <button onclick="nextBlock(8)"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
+                    Далее
+                </button>
+            </div>
+            <div id="block9" class="block hidden">
+                <h2 class="text-2xl font-bold mb-4">Вопрос 8</h2>
+                <div id="questions8" class="space-y-6"></div>
+                <button onclick="nextBlock(9)"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
+                    Далее
+                </button>
+            </div>
+            <div id="block10" class="block hidden">
+                <h2 class="text-2xl font-bold mb-4">Вопрос 9</h2>
+                <div id="questions9" class="space-y-6"></div>
+                <button onclick="nextBlock(10)"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
+                    Далее
+                </button>
+            </div>
+
+
+            <!-- Блок  -->
+            <div id="block11" class="block hidden">
+                <h2 class="text-2xl font-bold mb-4">Вопрос 10</h2>
+                <div id="questions10" class="space-y-6"></div>
                 <button onclick="submitForm()"
                     class="bg-green-600 text-white px-4 py-2 rounded-md shadow hover:bg-green-700">
                     Завершить
@@ -134,7 +194,87 @@
                 ]
             }
         ];
+        const questionsBlock5 = [
+            {
+                question_title: "Как называлась операция по освобождению Беларуси в 1944 году?",
+                answer_variants: [
+                    { answer_title: "«Оверлорд»", answer_id_correct: false },
+                    { answer_title: "«Багратион»", answer_id_correct: true },
+                    { answer_title: "«Барбаросса»", answer_id_correct: false },
 
+                ]
+            }
+        ];
+        const questionsBlock6 = [
+            {
+                question_title: "Какой объект в Беларуси называют «Долиной Смерти»?",
+                answer_variants: [
+                    { answer_title: "Кладбище концлагеря Тростенец", answer_id_correct: false },
+                    { answer_title: "Долина реки Неман, где шли жестокие бои", answer_id_correct: false },
+                    { answer_title: "Место массовых расстрелов под Витебском", answer_id_correct: true },
+                    { answer_title: "Линия Сталина", answer_id_correct: false }
+
+
+                ]
+            }
+        ];
+        const questionsBlock7 = [
+            {
+                question_title: "Какое событие произошло с 1 августа по 2 октября 1944 года?",
+                answer_variants: [
+                    { answer_title: "«Барбаросса»", answer_id_correct: false },
+                    { answer_title: "«Рельсовая война»", answer_id_correct: false },
+                    { answer_title: "«Варшавское восстание»", answer_id_correct: true },
+                    { answer_title: "«Уран»", answer_id_correct: false }
+
+
+                ]
+            }
+        ];
+        const questionsBlock8 = [
+            {
+                question_title: "Сколько жизней унесла Великая Отечественная война среди населения Беларуси?",
+                answer_variants: [
+                    { answer_title: "Более 2,5 миллионов", answer_id_correct: true },
+                    { answer_title: "Около 500 тысяч", answer_id_correct: false },
+                    { answer_title: "1 миллион", answer_id_correct: false },
+                
+                ]
+            }
+        ];
+        const questionsBlock9 = [
+            {
+                question_title: "Что такое партизанское движение, и какую роль оно сыграло в Беларуси?",
+                answer_variants: [
+                    { answer_title: "Это военные учения перед отправкой на фронт", answer_id_correct: false },
+                    { answer_title: "Это сопротивление местного населения против оккупантов", answer_id_correct: true },
+                    { answer_title: "Это организация помощи пленным", answer_id_correct: false },
+
+                ]
+            }
+        ];
+        const questionsBlock10 = [
+            {
+                question_title: "Как назывался главный лагерь смерти, действовавший на территории Беларуси в годы оккупации?",
+                answer_variants: [
+                    { answer_title: "Освенцим", answer_id_correct: false },
+                    { answer_title: "Тростенец", answer_id_correct: true },
+                    { answer_title: "Бухенвальд", answer_id_correct: false },
+                    { answer_title: "Майданек", answer_id_correct: false },
+                ]
+            }
+        ];
+        const questionsBlock11 = [
+            {
+                question_title: "Назовите героя Советского Союза из Беларуси, который совершил подвиг, бросившись с гранатой под танк.",
+                answer_variants: [
+                    { answer_title: "Михаил Казей", answer_id_correct: true },
+                    { answer_title: "Иван Шамякин", answer_id_correct: false },
+                    { answer_title: "Алексей Скобли", answer_id_correct: false },
+
+                ]
+            }
+        ];
 
         const answers = []; // Хранение ответов
 
@@ -175,6 +315,13 @@
             if (currentBlock === 1) renderQuestions("questions", questionsBlock2, "block2");
             if (currentBlock === 2) renderQuestions("questions2", questionsBlock3, "block3");
             if (currentBlock === 3) renderQuestions("questions3", questionsBlock4, "block4");
+            if (currentBlock === 4) renderQuestions("questions4", questionsBlock5, "block5");
+            if (currentBlock === 5) renderQuestions("questions5", questionsBlock6, "block6");
+            if (currentBlock === 6) renderQuestions("questions6", questionsBlock7, "block7");
+            if (currentBlock === 7) renderQuestions("questions7", questionsBlock8, "block8");
+            if (currentBlock === 8) renderQuestions("questions8", questionsBlock9, "block9");
+            if (currentBlock === 9) renderQuestions("questions9", questionsBlock10, "block10");
+            if (currentBlock === 10) renderQuestions("questions10", questionsBlock11, "block11");
 
         }
 
@@ -275,7 +422,34 @@
                 const selected = document.querySelector(`input[name="block4_q${index}"]:checked`);
                 if (selected && selected.value === "true") correctAnswers++;
             });
-            
+            questionsBlock5.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="block5_q${index}"]:checked`);
+                if (selected && selected.value === "true") correctAnswers++;
+            });
+            questionsBlock6.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="block6_q${index}"]:checked`);
+                if (selected && selected.value === "true") correctAnswers++;
+            });
+            questionsBlock7.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="block7_q${index}"]:checked`);
+                if (selected && selected.value === "true") correctAnswers++;
+            });
+            questionsBlock8.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="block8_q${index}"]:checked`);
+                if (selected && selected.value === "true") correctAnswers++;
+            });
+            questionsBlock9.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="block9_q${index}"]:checked`);
+                if (selected && selected.value === "true") correctAnswers++;
+            });
+            questionsBlock10.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="block10_q${index}"]:checked`);
+                if (selected && selected.value === "true") correctAnswers++;
+            });
+            questionsBlock11.forEach((q, index) => {
+                const selected = document.querySelector(`input[name="block11_q${index}"]:checked`);
+                if (selected && selected.value === "true") correctAnswers++;
+            });
 
             const result = {
                 student: fio,
