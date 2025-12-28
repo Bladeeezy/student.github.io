@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Форма с блоками</title>
+    <title>Башня Ильиничей – загадка основателя</title>
     <style>
         .block {
             display: none;
@@ -13,18 +13,61 @@
         .block.active {
             display: block;
         }
+        background-image: url('43.jpg'); 
+    
+  * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100vh;
+        
+        /* Фон */
+        background-image: url('43.jpg'); /* Убедитесь, что название файла совпадает! */
+        background-size: cover;          /* Растянуть на весь экран */
+        background-position: center;     /* Центрировать замок */
+        background-attachment: fixed;    /* Фон не двигается при скролле */
+        background-repeat: no-repeat;
+        
+        /* Центрирование формы */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+    }
+
+    /* Настройка для мобильных устройств */
+    @media (max-width: 768px) {
+        body {
+            background-attachment: scroll; /* На телефонах fixed иногда глючит */
+        }
+    }
+
+    /* Стили для формы, чтобы она была поверх фона */
+    .container {
+        background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый */
+        padding: 20px;
+        border-radius: 15px;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
     </style>
 </head>
 
 <body>
 
 
-
+    <!-- <img src="43.jpg" alt="Мирский замок" class="responsive-img"> -->
 
     <div class="flex flex-col gap-8 min-w-screen min-h-screen md:justify-center items-center bg-slate-300/70 p-4">
 
         <div class="text-2xl font-light">
-           Посвящение в студенты
+          Башня Ильиничей – загадка основателя
         </div>
         <div class="w-full max-w-2xl min-h-screen md:min-h-fit bg-white shadow-lg rounded-2xl p-6">
             <!-- Блок 1 -->
@@ -127,51 +170,20 @@
                     Далее
                 </button>
             </div>
- <div id="block11" class="block hidden">
+ <!-- <div id="block11" class="block hidden">
                 <h2 class="text-2xl font-bold mb-4">Вопрос 10</h2>
                 <div id="questions10" class="space-y-6"></div>
                 <button onclick="nextBlock(11)"
                     class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
                     Далее
                 </button>
-            </div>
-<div id="block12" class="block hidden">
-                <h2 class="text-2xl font-bold mb-4">Вопрос 11</h2>
-                <div id="questions11" class="space-y-6"></div>
-                <button onclick="nextBlock(12)"
-                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
-                    Далее
-                </button>
-            </div>
-            <div id="block13" class="block hidden">
-                <h2 class="text-2xl font-bold mb-4">Вопрос 12</h2>
-                <div id="questions12" class="space-y-6"></div>
-                <button onclick="nextBlock(13)"
-                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
-                    Далее
-                </button>
-            </div>
-              <div id="block14" class="block hidden">
-                <h2 class="text-2xl font-bold mb-4">Вопрос 13</h2>
-                <div id="questions13" class="space-y-6"></div>
-                <button onclick="nextBlock(14)"
-                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
-                    Далее
-                </button>
-            </div>
-               <div id="block15" class="block hidden">
-                <h2 class="text-2xl font-bold mb-4">Вопрос 14</h2>
-                <div id="questions14" class="space-y-6"></div>
-                <button onclick="nextBlock(15)"
-                    class="bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700">
-                    Далее
-                </button>
-            </div>
+            </div> -->
+
             
-            <!-- Блок  -->
-            <div id="block16" class="block hidden">
-                <h2 class="text-2xl font-bold mb-4">Вопрос 15</h2>
-                <div id="questions15" class="space-y-6"></div>
+            
+            <div id="block11" class="block hidden">
+                <h2 class="text-2xl font-bold mb-4">Вопрос 10</h2>
+                <div id="questions10" class="space-y-6"></div>
                 <button onclick="submitForm()"
                     class="bg-green-600 text-white px-4 py-2 rounded-md shadow hover:bg-green-700">
                     Завершить
@@ -187,59 +199,59 @@
         // Массивы вопросов
         const questionsBlock2 = [
             {
-                question_title: "Какой первый навык прокачивает первокурсник в МИТСО?",
+                question_title: " «Не князь и не король, а род свой возвеличить смог. Заложил он первый камень в землю эту. Назови имя строителя и воеводы этого».",
                 answer_variants: [
-                    { answer_title: "а)	Умение быстро писать конспекты", answer_id_correct: false },
-                    { answer_title: "б)	Умение находить нужную аудиторию по слухам", answer_id_correct: true },
-                    { answer_title: "в)	Умение делать вид, что всё понял", answer_id_correct: false },
-                    { answer_title: "г)	Умение пить кофе и не дрожать", answer_id_correct: false },
+                    { answer_title: "а) Николай Радзивилл «Сиротка»", answer_id_correct: false },
+                    { answer_title: "б)	Юрий Ильинич", answer_id_correct: true },
+                    { answer_title: "в)	Лев Сапега", answer_id_correct: false },
+                    { answer_title: "г)	Михаил Глинский", answer_id_correct: false },
                 ]
             }
         ];
 
         const questionsBlock3 = [
             {
-                question_title: "Какой из этих навыков не преподают в МИТСО, но он жизненно необходим?",
+                question_title: "«В каком веке, подскажу, стройка главная в Миру? Шестнадцатый, спорить не буду, но год начала назови приблизительно».",
                 answer_variants: [
-                    { answer_title: "а)	Умение найти аудиторию по номеру", answer_id_correct: false },
-                    { answer_title: "б)	Способность делать презентацию за 15 минут", answer_id_correct: false },
-                    { answer_title: "в)	Искусство выживания в очереди в буфет", answer_id_correct: true },
-                    { answer_title: "г)	Навык общения с деканатом без паники", answer_id_correct: false },
+                    { answer_title: "а)	Около 1480 года", answer_id_correct: false },
+                    { answer_title: "б)	Около 1500 года", answer_id_correct: false },
+                    { answer_title: "в)	Около 1520-х годов (1522-1526)", answer_id_correct: true },
+                    { answer_title: "г)	Около 1580 года", answer_id_correct: false },
                 ]
             }
         ];
 
         const questionsBlock4 = [
             {
-                question_title: "Какой способ подготовки к экзамену считается «легендарным» среди студентов?",
+                question_title: "«Сколько могучих башен возвышается по углам Мирского замка?»",
                 answer_variants: [
-                    { answer_title: "а)	Читать весь учебникк", answer_id_correct: false },
-                    { answer_title: "б)	Получить конспект от старшекурсника", answer_id_correct: true },
-                    { answer_title: "в)	Смотреть видео на YouTube", answer_id_correct: false },
-                    { answer_title: "г)	Молиться на шпаргалку", answer_id_correct: false },
+                    { answer_title: "а)	4", answer_id_correct: false },
+                    { answer_title: "б)	5", answer_id_correct: true },
+                    { answer_title: "в)	6", answer_id_correct: false },
+                    { answer_title: "г)	7", answer_id_correct: false },
 
                 ]
             }
         ];
         const questionsBlock5 = [
             {
-                question_title: "Что чаще всего первым спрашивает первокурсник у одногруппников?",
+                question_title: "«От кого стены толсты и высоки? Не от меча единого. Народ, что часто приходил с огнем и мечом с юго-востока».",
                 answer_variants: [
-                    { answer_title: "а)	Какой у тебя любимый кинофильм", answer_id_correct: false },
-                    { answer_title: "б)	Где ближайшая кофейня", answer_id_correct: false },
-                    { answer_title: "в)	Во сколько начинается пара и где аудитория", answer_id_correct: true },
-                     { answer_title: "г)	Как зовут декана", answer_id_correct: false },
+                    { answer_title: "а)	От шведов", answer_id_correct: false },
+                    { answer_title: "б)	От тевтонских рыцарей", answer_id_correct: false },
+                    { answer_title: "в)	От татар (крымских татар)", answer_id_correct: true },
+                     { answer_title: "г) От турок", answer_id_correct: false },
                 ]
             }
         ];
         const questionsBlock6 = [
             {
-                question_title: "Что считается полезной первой инициативой для новичка в студенческой жизни?",
+                question_title: "«Почему род Ильиничей не смог до конца завершить строительство и удержать замок?»",
                 answer_variants: [
-                    { answer_title: "а)	Организовать международную конференцию в первый месяц", answer_id_correct: false },
-                    { answer_title: "б)	Присоединиться к кружку или секции и пойти на пару репетиций", answer_id_correct: true },
-                    { answer_title: "в)	Всегда сидеть в задней парте и не участвовать", answer_id_correct: false },
-                    { answer_title: "г)	Кричать в коридоре о своём таланте", answer_id_correct: false },
+                    { answer_title: "а)	Они проиграли замок в карты", answer_id_correct: false },
+                    { answer_title: "б)	Род пресекся (не осталось прямых наследников-мужчин)", answer_id_correct: true },
+                    { answer_title: "в)	Они разорились на войне", answer_id_correct: false },
+                    { answer_title: "г)	Король забрал замок в казну", answer_id_correct: false },
 
 
                 ]
@@ -247,12 +259,12 @@
         ];
         const questionsBlock7 = [
             {
-                question_title: "Какими словами заканчивается Государственный гимн Республики Беларусь?",
+                question_title: "«Из какого материала сложены самые первые, древнейшие стены Мирского замка?»",
                 answer_variants: [
-                    { answer_title: "а.	Слаўся, зямлі нашай светлае імя!", answer_id_correct: false },
-                    { answer_title: "б.	Вечна жывi i квiтней Беларусь!", answer_id_correct: true },
-                    { answer_title: "в.	Слаўся, народаў братэрскі саюз! ", answer_id_correct: false },
-                   
+                    { answer_title: "а.	Только из дерева", answer_id_correct: false },
+                    { answer_title: "б.	Только из кирпича", answer_id_correct: false },
+                    { answer_title: "в.	Из камня-валуна и кирпича ", answer_id_correct: true },
+                    { answer_title: "в.	Из мрамора ", answer_id_correct: false },
 
 
                 ]
@@ -260,111 +272,111 @@
         ];
         const questionsBlock8 = [
             {
-                question_title: "На территории какого мемориального комплекса находится <<Кладбище деревень>>, сожженных в годы Великой Отечественной войны?",
+                question_title: "«Самая высокая башня — проезжая. Но какая башня почти ровня ей, стоит на углу и смотрит на речку Миранку?»",
                 answer_variants: [
-                    { answer_title: "Тростенец", answer_id_correct: false },
-                    { answer_title: "Дальва", answer_id_correct: false },
-                    { answer_title: "Красный берег", answer_id_correct: false },
-                     { answer_title: "Хатынь", answer_id_correct: true },
+                    { answer_title: "Северо-восточная", answer_id_correct: false },
+                    { answer_title: "Юго-восточная", answer_id_correct: false },
+                    { answer_title: "Юго-западная (винтовая)", answer_id_correct: true },
+                     { answer_title: "Северо-западная", answer_id_correct: false },
                 
                 ]
             }
         ];
         const questionsBlock9 = [
             {
-                question_title: "Какое белорусское предприятие впервые выпустило самый любимый десерт сладкоежек, который стал «визитной карточкой» Республики Беларусь – глазированные сырки?",
+                question_title: "«Что из перечисленного было ГЛАВНЫМ сокровищем и символом рода для первых владельцев, ради чего и строился такой замок?»",
                 answer_variants: [
-                    { answer_title: "ОАО «Минский молочный завод №1»", answer_id_correct: true },
-                    { answer_title: "ОАО «Беллакт»", answer_id_correct: false },
-                    { answer_title: "ОАО «Молочный мир»", answer_id_correct: false },
-                       { answer_title: "ОАО «Бабушкина крынка»", answer_id_correct: false },
+                    { answer_title: "Родовая честь, знамя, архив и казна (сокровище как символ)", answer_id_correct: true },
+                    { answer_title: "Коллекция картин и гобеленов", answer_id_correct: false },
+                    { answer_title: "Тайная алхимическая лаборатория", answer_id_correct: false },
+                       { answer_title: "Личная библиотека", answer_id_correct: false },
 
                 ]
             }
         ];
         const questionsBlock10 = [
             {
-                question_title: "В основе орнамента на белорусском флаге лежит узор, вытканный в 1917 г. Матрёной Маркевич. Изначально он предназначался для женской одежды. Что же символизирует этот узор?",
+                question_title: "Назовите могущественный род-сосед, с кем Ильиничи могли и соперничать, и дружить, чей замок тоже стоит неподалеку (в городе Лида)».",
                 answer_variants: [
-                    { answer_title: "Единство", answer_id_correct: false },
-                    { answer_title: "Процветание", answer_id_correct: false },
-                    { answer_title: "Огонь", answer_id_correct: false },
-                    { answer_title: "Восходящее солнце", answer_id_correct: true },
+                    { answer_title: "Ходкевичи", answer_id_correct: false },
+                    { answer_title: "Гаштольды", answer_id_correct: true },
+                    { answer_title: "Сапеги", answer_id_correct: false },
+                    { answer_title: "Острожские", answer_id_correct: false },
                 ]
             }
         ];
         const questionsBlock11 = [
             {
-                question_title: "Сколько учреждений высшего образования функционирует в Республике Беларусь?",
+                question_title: "«Как звали могущественного Радзивилла, канцлера Великого Княжества Литовского, который стоял у истоков Статута ВКЛ и чей сын позже достроил Мирский замок?»",
                 answer_variants: [
-                    { answer_title: "43", answer_id_correct: false },
-                    { answer_title: "50", answer_id_correct: true },
-                    { answer_title: "45", answer_id_correct: false },
-                     { answer_title: "47", answer_id_correct: false },
+                    { answer_title: "Юрий Радзивилл", answer_id_correct: false },
+                    { answer_title: "Николай Радзивилл «Черный»", answer_id_correct: true },
+                    { answer_title: "Криштоф Радзивилл «Перун»", answer_id_correct: false },
+                     { answer_title: "Михаил Казимир Радзивилл «Рыбонька»", answer_id_correct: false },
 
                 ]
             }
         ];
-const questionsBlock12 = [
-            {
-                question_title: "Сколько учреждений высшего образования функционирует в Республике Беларусь?",
-                answer_variants: [
-                    { answer_title: "а) Конкуренция", answer_id_correct: false },
-                    { answer_title: "б) Индивидуализм", answer_id_correct: false },
-                    { answer_title: "в) Солидарность", answer_id_correct: true },
-                    { answer_title: "г) Централизация", answer_id_correct: false },
+    // const questionsBlock12 = [
+    //             {
+    //                 question_title: "Сколько учреждений высшего образования функционирует в Республике Беларусь?",
+    //                 answer_variants: [
+    //                     { answer_title: "а) Конкуренция", answer_id_correct: false },
+    //                     { answer_title: "б) Индивидуализм", answer_id_correct: false },
+    //                     { answer_title: "в) Солидарность", answer_id_correct: true },
+    //                     { answer_title: "г) Централизация", answer_id_correct: false },
 
-                ]
-            }
-        ];
-        const questionsBlock13 = [
-            {
-                question_title: "Сколько отраслевых профсоюзов входит в состав ФПБ?",
-                answer_variants: [
-                    { answer_title: "5", answer_id_correct: false },
-                    { answer_title: "10", answer_id_correct: false },
-                    { answer_title: "15", answer_id_correct: false },
-                     { answer_title: "Более 30", answer_id_correct: true },
+    //                 ]
+    //             }
+    //         ];
+    //         const questionsBlock13 = [
+    //             {
+    //                 question_title: "Сколько отраслевых профсоюзов входит в состав ФПБ?",
+    //                 answer_variants: [
+    //                     { answer_title: "5", answer_id_correct: false },
+    //                     { answer_title: "10", answer_id_correct: false },
+    //                     { answer_title: "15", answer_id_correct: false },
+    //                     { answer_title: "Более 30", answer_id_correct: true },
 
-                ]
-            }
-        ];
-        const questionsBlock14 = [
-            {
-                question_title: "Как называется молодёжное направление ФПБ?",
-                answer_variants: [
-                    { answer_title: "а) ПрофМолодёжь", answer_id_correct: true },
-                    { answer_title: "б) Молодёжный фронт", answer_id_correct: false },
-                    { answer_title: "в) Союз студентов ", answer_id_correct: false },
-                     { answer_title: "г) Профсоюз будущего", answer_id_correct: false },
+    //                 ]
+    //             }
+    //         ];
+    //         const questionsBlock14 = [
+    //             {
+    //                 question_title: "Как называется молодёжное направление ФПБ?",
+    //                 answer_variants: [
+    //                     { answer_title: "а) ПрофМолодёжь", answer_id_correct: true },
+    //                     { answer_title: "б) Молодёжный фронт", answer_id_correct: false },
+    //                     { answer_title: "в) Союз студентов ", answer_id_correct: false },
+    //                     { answer_title: "г) Профсоюз будущего", answer_id_correct: false },
 
-                ]
-            }
-        ];
-        const questionsBlock15 = [
-            {
-                question_title: "Какой символ чаще всего используется в логотипе ФПБ?",
-                answer_variants: [
-                    { answer_title: "Книга", answer_id_correct: false },
-                    { answer_title: "Рука", answer_id_correct: true },
-                    { answer_title: "Весы", answer_id_correct: false },
-                     { answer_title: "Лавровый венок", answer_id_correct: false },
+    //                 ]
+    //             }
+    //         ];
+    //         const questionsBlock15 = [
+    //             {
+    //                 question_title: "Какой символ чаще всего используется в логотипе ФПБ?",
+    //                 answer_variants: [
+    //                     { answer_title: "Книга", answer_id_correct: false },
+    //                     { answer_title: "Рука", answer_id_correct: true },
+    //                     { answer_title: "Весы", answer_id_correct: false },
+    //                     { answer_title: "Лавровый венок", answer_id_correct: false },
 
-                ]
-            }
-        ];
-        const questionsBlock16 = [
-            {
-                question_title: "Какой праздник ФПБ традиционно отмечает в октябре?",
-                answer_variants: [
-                    { answer_title: "а) День солидарности ", answer_id_correct: false },
-                    { answer_title: "б) День профсоюзного работника", answer_id_correct: true },
-                    { answer_title: "в) День студента ", answer_id_correct: false },
-                     { answer_title: "г) День труда", answer_id_correct: false },
+    //                 ]
+    //             }
+    //         ];
+    //         const questionsBlock16 = [
+    //             {
+    //                 question_title: "Какой праздник ФПБ традиционно отмечает в октябре?",
+    //                 answer_variants: [
+    //                     { answer_title: "а) День солидарности ", answer_id_correct: false },
+    //                     { answer_title: "б) День профсоюзного работника", answer_id_correct: true },
+    //                     { answer_title: "в) День студента ", answer_id_correct: false },
+    //                     { answer_title: "г) День труда", answer_id_correct: false },
 
-                ]
-            }
-        ];
+    //                 ]
+    //             }
+    //         ];
         const answers = []; // Хранение ответов
 
         // Переход между блоками
@@ -410,11 +422,11 @@ const questionsBlock12 = [
             if (currentBlock === 8) renderQuestions("questions8", questionsBlock9, "block9");
             if (currentBlock === 9) renderQuestions("questions9", questionsBlock10, "block10");
             if (currentBlock === 10) renderQuestions("questions10", questionsBlock11, "block11");
- if (currentBlock === 11) renderQuestions("questions11", questionsBlock12, "block12");
-            if (currentBlock === 12) renderQuestions("questions12", questionsBlock13, "block13");
-            if (currentBlock === 13) renderQuestions("questions13", questionsBlock14, "block14");
-            if (currentBlock === 14) renderQuestions("questions14", questionsBlock15, "block15");
-            if (currentBlock === 15) renderQuestions("questions15", questionsBlock16, "block16");
+    // if (currentBlock === 11) renderQuestions("questions11", questionsBlock12, "block12");
+    //             if (currentBlock === 12) renderQuestions("questions12", questionsBlock13, "block13");
+    //             if (currentBlock === 13) renderQuestions("questions13", questionsBlock14, "block14");
+    //             if (currentBlock === 14) renderQuestions("questions14", questionsBlock15, "block15");
+    //             if (currentBlock === 15) renderQuestions("questions15", questionsBlock16, "block16");
         }
 
         // document.querySelectorAll('.block').forEach((block) => block.classList.add('hidden'));
@@ -448,8 +460,8 @@ const questionsBlock12 = [
         }
 
         function sendToTelegram(result) {
-            const botToken = "7513376393:AAG1fj3u-3IUxsaKnj7nDPAgVFO7MH178hk";
-            const chatId = "-4511060793"; // ID чата, куда отправить сообщение
+            const botToken = "8131322437:AAFfWkCLylulHyNqwe3irUFY2irbrgNwTEo";
+            const chatId = "-1003479294128"; // ID чата, куда отправить сообщение
             const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
             // Подготовка содержимого сообщения
@@ -539,26 +551,26 @@ const questionsBlock12 = [
                 const selected = document.querySelector(`input[name="block11_q${index}"]:checked`);
                 if (selected && selected.value === "true") correctAnswers++;
             });
- questionsBlock12.forEach((q, index) => {
-                const selected = document.querySelector(`input[name="block12_q${index}"]:checked`);
-                if (selected && selected.value === "true") correctAnswers++;
-            });
-            questionsBlock13.forEach((q, index) => {
-                const selected = document.querySelector(`input[name="block13_q${index}"]:checked`);
-                if (selected && selected.value === "true") correctAnswers++;
-            });
-            questionsBlock14.forEach((q, index) => {
-                const selected = document.querySelector(`input[name="block14_q${index}"]:checked`);
-                if (selected && selected.value === "true") correctAnswers++;
-            });
-            questionsBlock15.forEach((q, index) => {
-                const selected = document.querySelector(`input[name="block15_q${index}"]:checked`);
-                if (selected && selected.value === "true") correctAnswers++;
-            });
-            questionsBlock16.forEach((q, index) => {
-                const selected = document.querySelector(`input[name="block16_q${index}"]:checked`);
-                if (selected && selected.value === "true") correctAnswers++;
-            });
+//  questionsBlock12.forEach((q, index) => {
+//                 const selected = document.querySelector(`input[name="block12_q${index}"]:checked`);
+//                 if (selected && selected.value === "true") correctAnswers++;
+//             });
+//             questionsBlock13.forEach((q, index) => {
+//                 const selected = document.querySelector(`input[name="block13_q${index}"]:checked`);
+//                 if (selected && selected.value === "true") correctAnswers++;
+//             });
+//             questionsBlock14.forEach((q, index) => {
+//                 const selected = document.querySelector(`input[name="block14_q${index}"]:checked`);
+//                 if (selected && selected.value === "true") correctAnswers++;
+//             });
+//             questionsBlock15.forEach((q, index) => {
+//                 const selected = document.querySelector(`input[name="block15_q${index}"]:checked`);
+//                 if (selected && selected.value === "true") correctAnswers++;
+//             });
+//             questionsBlock16.forEach((q, index) => {
+//                 const selected = document.querySelector(`input[name="block16_q${index}"]:checked`);
+//                 if (selected && selected.value === "true") correctAnswers++;
+//             });
 
             const result = {
                 student: fio,
